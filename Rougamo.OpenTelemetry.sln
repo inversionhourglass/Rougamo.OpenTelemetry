@@ -9,14 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 	ProjectSection(SolutionItems) = preProject
 		deploy.bat = deploy.bat
 		README.md = README.md
-		rougamo-OpenTelemetry.png = rougamo-OpenTelemetry.png
+		rougamo-otel.png = rougamo-otel.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rougamo.OpenTelemetry", "src\Rougamo.OpenTelemetry\Rougamo.OpenTelemetry.csproj", "{4C76A98A-5B1D-4C99-982D-1AE80040016E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rougamo.OpenTelemetry", "src\Rougamo.OpenTelemetry\Rougamo.OpenTelemetry.csproj", "{4C76A98A-5B1D-4C99-982D-1AE80040016E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{019A4852-0CA5-46CD-842E-68D4B084A5AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rougamo.OpenTelemetryTest", "test\Rougamo.OpenTelemetryTest\Rougamo.OpenTelemetryTest.csproj", "{049EC52E-BD8A-4505-80E7-8AD7051E305F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rougamo.OpenTelemetryTest", "test\Rougamo.OpenTelemetryTest\Rougamo.OpenTelemetryTest.csproj", "{049EC52E-BD8A-4505-80E7-8AD7051E305F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
