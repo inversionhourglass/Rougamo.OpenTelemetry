@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenTelemetry.Exporter.Jaeger" Version="1.1.0" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.0.0-rc8" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.0.0-rc8" />
+    <PackageReference Include="Rougamo.APM.JsonSerialization" Version="0.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Rougamo.OpenTelemetry.Hosting\Rougamo.OpenTelemetry.Hosting.csproj" />
+    <ProjectReference Include="..\..\..\src\Rougamo.OpenTelemetry\Rougamo.OpenTelemetry.csproj" />
+  </ItemGroup>
+
+
+</Project>

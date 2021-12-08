@@ -1,6 +1,7 @@
 ﻿using OpenTelemetry.Trace;
 using Rougamo.APM;
 using Rougamo.Context;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace Rougamo.OpenTelemetry
@@ -28,7 +29,12 @@ namespace Rougamo.OpenTelemetry
         /// </summary>
         public override void OnEntry(MethodContext context)
         {
-            var name = string.IsNullOrEmpty(Name) ? $"{context.TargetType.FullName}.{context.Method.Name}" : Name;
+            if (OtelSingleton.Options == null) return;
+
+            var name = !string.IsNullOrEmpty(Name) ? Name :
+                            (OtelSingleton.Options.ShortName ?
+                                    $"{context.TargetType.Name}.{context.Method.Name}" :
+                                    $"{context.TargetType.FullName}.{context.Method.Name}");
             _parameters = context.GetMethodParameters(OtelSingleton.Serializer, RecordArguments);
             _activity = OtelSingleton.Source.StartActivity(name);
         }
@@ -85,14 +91,14 @@ namespace Rougamo.OpenTelemetry
             switch (OtelSingleton.Options.ArgumentsStoreType)
             {
                 case ArgumentsStoreType.Tag:
-                    _activity.AddTag("parameters", parameters);
-                    _activity.AddTag("return", @return);
+                    _activity.AddTag(OtelSingleton.Options.KeyNames.TagParameter, parameters);
+                    _activity.AddTag(OtelSingleton.Options.KeyNames.TagReturn, @return);
                     break;
                 case ArgumentsStoreType.Event:
-                    _activity.AddEvent(new ActivityEvent("message", default, new ActivityTagsCollection
+                    _activity.AddEvent(new ActivityEvent(OtelSingleton.Options.KeyNames.EventArguments, default, new ActivityTagsCollection
                     {
-                        { "parameters", parameters },
-                        { "return", @return }
+                        { OtelSingleton.Options.KeyNames.TagParameter, parameters },
+                        { OtelSingleton.Options.KeyNames.TagReturn, @return }
                     }));
                     break;
             }
