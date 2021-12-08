@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace />
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Authors>ihourglass</Authors>
     <Description>rougamo OpenTelemetry code weaver</Description>
     <PackageTags>AOP OpenTelemetry</PackageTags>
@@ -14,7 +14,7 @@
     <PackageOutputPath>$(SolutionDir)nugets</PackageOutputPath>
     <PackageProjectUrl>https://github.com/inversionhourglass/Rougamo.OpenTelemetry</PackageProjectUrl>
     <RepositoryUrl>https://github.com/inversionhourglass/Rougamo.OpenTelemetry.git</RepositoryUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/inversionhourglass/OpenTelemetry/master/rougamo-otel.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/inversionhourglass/Rougamo.OpenTelemetry/master/rougamo-otel.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
