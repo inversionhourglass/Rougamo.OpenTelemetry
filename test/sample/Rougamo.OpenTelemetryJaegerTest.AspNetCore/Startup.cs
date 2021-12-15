@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using Rougamo.OpenTelemetry;
 using Rougamo.OpenTelemetryJaegerTest.AspNetCore.Services;
@@ -31,6 +32,7 @@ namespace Rougamo.OpenTelemetryJaegerTest.AspNetCore
                 builder
                     .AddRougamoSource()
                     .AddAspNetCoreInstrumentation()
+                    .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("RougamoOpenTelemetryTestSample"))
                     .AddJaegerExporter();
             });
             services.AddOpenTelemetryRougamo(options =>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Rougamo.OpenTelemetryJaegerTest.AspNetCore.Services;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Rougamo.OpenTelemetryJaegerTest.AspNetCore.Controllers
@@ -35,6 +36,22 @@ namespace Rougamo.OpenTelemetryJaegerTest.AspNetCore.Controllers
         public void Exception()
         {
             _testService.Exception();
+        }
+
+        [HttpGet]
+        [Route("[action]")]
+        public string BackgroundComplete()
+        {
+            _testService.BackgroundComplete();
+            return nameof(BackgroundComplete);
+        }
+
+        [HttpGet]
+        [Route("[action]")]
+        public string BackgroundTask()
+        {
+            _testService.BackgroundTask();
+            return nameof(BackgroundTask);
         }
     }
 }

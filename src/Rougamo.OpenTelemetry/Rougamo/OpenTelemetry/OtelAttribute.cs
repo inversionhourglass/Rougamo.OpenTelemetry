@@ -1,7 +1,6 @@
 ﻿using OpenTelemetry.Trace;
 using Rougamo.APM;
 using Rougamo.Context;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace Rougamo.OpenTelemetry
