@@ -80,7 +80,7 @@ public class TestService : ITestService
 然后重写`Flags`属性
 
 |最小版本要求|默认记录参数和返回值|默认不记录参数和返回值|可访问性|
-|:--:|:--:|:--:|:--:|
+|:--:|:--:|:--:|:--|
 |0.1.2|PublicOtelAttribute|PublicPureOtelAttribute|所有public方法，无论是静态方法还是实例方法|
 |0.1.2|StaticOtelAttribute|StaticPureOtelAttribute|所有public static方法|
 |0.1.2|FullOtelAttribute|FullPureOtelAttribute|所有方法，不论可访问性如何|
