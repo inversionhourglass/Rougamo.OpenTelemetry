@@ -1,15 +1,15 @@
 # Rougamo.OpenTelemetry
-`Rougamo.OpenTelemetry`ÊÇÓÃÀ´·á¸»[OpenTelemetry](https://github.com/open-telemetry/opentelemetry-dotnet)·ÇIOÂñµãµÄ×é¼ş£¬
-Æä½èÖúÓÚ[Rougamo](https://github.com/inversionhourglass/Rougamo)¾²Ì¬Ö¯ÈëµÄ¹¦ÄÜ£¬¶ÔÖ¸¶¨·½·¨Ôö¼Ó`Trace`Âñµã
+`Rougamo.OpenTelemetry`æ˜¯ç”¨æ¥ä¸°å¯Œ[OpenTelemetry](https://github.com/open-telemetry/opentelemetry-dotnet)éIOåŸ‹ç‚¹çš„ç»„ä»¶ï¼Œ
+å…¶å€ŸåŠ©äº[Rougamo](https://github.com/inversionhourglass/Rougamo)é™æ€ç»‡å…¥çš„åŠŸèƒ½ï¼Œå¯¹æŒ‡å®šæ–¹æ³•å¢åŠ `Trace`åŸ‹ç‚¹
 
-## ¿ìËÙ¿ªÊ¼
-ÔÚÆô¶¯ÏîÄ¿°²×°[Rougamo.OpenTelemetry.Hosting](https://github.com/inversionhourglass/Rougamo.OpenTelemetry/tree/master/src/Rougamo.OpenTelemetry.Hosting),
-È»ºóÔÚĞèÒªÂñµãµÄÏîÄ¿°²×°[Rougamo.OpenTelemetry](https://github.com/inversionhourglass/Rougamo.OpenTelemetry/tree/master/src/Rougamo.OpenTelemetry)
+## å¿«é€Ÿå¼€å§‹
+åœ¨å¯åŠ¨é¡¹ç›®å®‰è£…[Rougamo.OpenTelemetry.Hosting](https://github.com/inversionhourglass/Rougamo.OpenTelemetry/tree/master/src/Rougamo.OpenTelemetry.Hosting),
+ç„¶ååœ¨éœ€è¦åŸ‹ç‚¹çš„é¡¹ç›®å®‰è£…[Rougamo.OpenTelemetry](https://github.com/inversionhourglass/Rougamo.OpenTelemetry/tree/master/src/Rougamo.OpenTelemetry)
 ```sh
 dotnet add package Rougamo.OpenTelemetry.Hosting
 dotnet add package Rougamo.OpenTelemetry
 ```
-ÔÚÆô¶¯ÏîÄ¿`Startup.cs`ÖĞ³õÊ¼»¯`Rougamo.OpenTelemetry`
+åœ¨å¯åŠ¨é¡¹ç›®`Startup.cs`ä¸­åˆå§‹åŒ–`Rougamo.OpenTelemetry`
 ```csharp
 public class Startup
 {
@@ -20,12 +20,12 @@ public class Startup
         services.AddOpenTelemetryTracing(builder =>
         {
             builder
-                .AddRougamoSource() // ³õÊ¼»¯Rougamo.OpenTelemetry
+                .AddRougamoSource() // åˆå§‹åŒ–Rougamo.OpenTelemetry
                 .AddAspNetCoreInstrumentation()
                 .AddJaegerExporter();
         });
 
-        // ĞŞ¸ÄRougamo.OpenTelemetryÄ¬ÈÏÅäÖÃ
+        // ä¿®æ”¹Rougamo.OpenTelemetryé»˜è®¤é…ç½®
         services.AddOpenTelemetryRougamo(options =>
         {
             options.ArgumentsStoreType = ArgumentsStoreType.Tag;
@@ -33,37 +33,37 @@ public class Startup
     }
 }
 ```
-Ö®ºó±ã¿ÉÒÔµ½ÏîÄ¿ÖĞÌí¼ÓÂñµã£¬×î¼òµ¥µÄ·½Ê½ÊÇÍ¨¹ıÔÚ·½·¨ÉÏÌí¼Ó`OtelAttribute`ºÍ`PureOtelAttribute`À´Îª¸Ã·½·¨Ìí¼ÓÂñµã£¬Á½¸öAttributeµÄÇø±ğÔÚÓÚ
-`OtelAttribute`Ä¬ÈÏ»á¼ÇÂ¼²ÎÊıºÍ·µ»ØÖµ£¬¶ø`PureOtelAttribute`Ä¬ÈÏ²»»á¼ÇÂ¼£¬µ±È»£¬Ò²¿ÉÒÔ·Ö±ğÅäºÏ`ApmIgnoreAttribute`ºÍ`ApmRecordAttribute`
-ºöÂÔ»ò¼ÇÂ¼Ö¸¶¨²ÎÊı»ò·µ»ØÖµ
+ä¹‹åä¾¿å¯ä»¥åˆ°é¡¹ç›®ä¸­æ·»åŠ åŸ‹ç‚¹ï¼Œæœ€ç®€å•çš„æ–¹å¼æ˜¯é€šè¿‡åœ¨æ–¹æ³•ä¸Šæ·»åŠ `OtelAttribute`å’Œ`PureOtelAttribute`æ¥ä¸ºè¯¥æ–¹æ³•æ·»åŠ åŸ‹ç‚¹ï¼Œä¸¤ä¸ªAttributeçš„åŒºåˆ«åœ¨äº
+`OtelAttribute`é»˜è®¤ä¼šè®°å½•å‚æ•°å’Œè¿”å›å€¼ï¼Œè€Œ`PureOtelAttribute`é»˜è®¤ä¸ä¼šè®°å½•ï¼Œå½“ç„¶ï¼Œä¹Ÿå¯ä»¥åˆ†åˆ«é…åˆ`ApmIgnoreAttribute`å’Œ`ApmRecordAttribute`
+å¿½ç•¥æˆ–è®°å½•æŒ‡å®šå‚æ•°æˆ–è¿”å›å€¼
 ```csharp
 class Service
 {
-    [return: ApmIgnore]     // ·µ»ØÖµ²»¼ÇÂ¼
-    [Otel] // Ä¬ÈÏ¼ÇÂ¼²ÎÊıºÍ·µ»ØÖµ£¬ĞèÒªÍ¨¹ıApmIgnoreAttributeÀ´ºöÂÔ²»ĞèÒª¼ÇÂ¼µÄ²ÎÊı»ò·µ»ØÖµ
+    [return: ApmIgnore]     // è¿”å›å€¼ä¸è®°å½•
+    [Otel] // é»˜è®¤è®°å½•å‚æ•°å’Œè¿”å›å€¼ï¼Œéœ€è¦é€šè¿‡ApmIgnoreAttributeæ¥å¿½ç•¥ä¸éœ€è¦è®°å½•çš„å‚æ•°æˆ–è¿”å›å€¼
     public async Task<string> M1(
-            [ApmIgnore] string uid, // ¸Ã²ÎÊı²»¼ÇÂ¼
+            [ApmIgnore] string uid, // è¯¥å‚æ•°ä¸è®°å½•
             DateTime time)
     {
         // do something
         return string.Empty;
     }
 
-    [PureOtel] // Ä¬ÈÏ²»¼ÇÂ¼²ÎÊıºÍ·µ»ØÖµ£¬ĞèÒªÍ¨¹ıApmRecordAttributeÀ´¼ÇÂ¼Ö¸¶¨µÄ²ÎÊı»ò·µ»ØÖµ
+    [PureOtel] // é»˜è®¤ä¸è®°å½•å‚æ•°å’Œè¿”å›å€¼ï¼Œéœ€è¦é€šè¿‡ApmRecordAttributeæ¥è®°å½•æŒ‡å®šçš„å‚æ•°æˆ–è¿”å›å€¼
     public void M2(
-            [ApmRecord] double d1,  // ¼ÇÂ¼¸Ã²ÎÊı
+            [ApmRecord] double d1,  // è®°å½•è¯¥å‚æ•°
             double d2)
     {
         // do something
     }
 }
 ```
-Ä¬ÈÏÇé¿öÏÂ£¬²ÎÊıºÍ·µ»ØÖµ»á¼ÇÂ¼µ½µ±Ç°SpanµÄEventÖĞ£¬¿ÉÒÔÏñÉÏÃæ`Startup`Ê¾Àı´úÂëÄÇÑùĞŞ¸Ä²ÎÊıºÍ·µ»ØÖµ´æ·ÅÎ»ÖÃ£¬
-µ±ÉÏÃæM1»òM2·½·¨±»µ÷ÓÃÊ±±ã»áÉú³ÉÒ»¸ö¶ÔÓ¦µÄSpan¼ÇÂ¼
+é»˜è®¤æƒ…å†µä¸‹ï¼Œå‚æ•°å’Œè¿”å›å€¼ä¼šè®°å½•åˆ°å½“å‰Spançš„Eventä¸­ï¼Œå¯ä»¥åƒä¸Šé¢`Startup`ç¤ºä¾‹ä»£ç é‚£æ ·ä¿®æ”¹å‚æ•°å’Œè¿”å›å€¼å­˜æ”¾ä½ç½®ï¼Œ
+å½“ä¸Šé¢M1æˆ–M2æ–¹æ³•è¢«è°ƒç”¨æ—¶ä¾¿ä¼šç”Ÿæˆä¸€ä¸ªå¯¹åº”çš„Spanè®°å½•
 
-## Í¨¹ı½Ó¿ÚÅúÁ¿Ö¯Èë
-`OpenTelemetry`µÄ±¾µØÂñµãÊÇÍ¨¹ı[Rougamo](https://github.com/inversionhourglass/Rougamo)½øĞĞ¾²Ì¬Ö¯ÈëµÄ£¬ÕâÒ²¾Í±íÊ¾ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ`Rougamo`Ìá¹©µÄ¸÷ÖÖ
-´úÂëÖ¯Èë·½·¨£¬ËùÒÔÎÒÃÇ¿ÉÒÔÊ¹ÓÃ[ÊµÏÖ¿Õ½Ó¿ÚµÄ·½Ê½½øĞĞÖ¯Èë](https://github.com/inversionhourglass/Rougamo#%E9%80%9A%E8%BF%87%E5%AE%9E%E7%8E%B0%E7%A9%BA%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9B%E8%A1%8C%E7%BB%87%E5%85%A5irougamo)£¬
+## é€šè¿‡æ¥å£æ‰¹é‡ç»‡å…¥
+`OpenTelemetry`çš„æœ¬åœ°åŸ‹ç‚¹æ˜¯é€šè¿‡[Rougamo](https://github.com/inversionhourglass/Rougamo)è¿›è¡Œé™æ€ç»‡å…¥çš„ï¼Œè¿™ä¹Ÿå°±è¡¨ç¤ºæˆ‘ä»¬å¯ä»¥ä½¿ç”¨`Rougamo`æä¾›çš„å„ç§
+ä»£ç ç»‡å…¥æ–¹æ³•ï¼Œæ‰€ä»¥æˆ‘ä»¬å¯ä»¥ä½¿ç”¨[å®ç°ç©ºæ¥å£çš„æ–¹å¼è¿›è¡Œç»‡å…¥](https://github.com/inversionhourglass/Rougamo#%E9%80%9A%E8%BF%87%E5%AE%9E%E7%8E%B0%E7%A9%BA%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9B%E8%A1%8C%E7%BB%87%E5%85%A5irougamo)ï¼Œ
 ```csharp
 public interface ITestService : IRougamo<OtelAttribute>
 {
@@ -74,36 +74,36 @@ public class TestService : ITestService
     // ...
 }
 ```
-ÉÏÃæµÄ´úÂëÖĞ£¬ÓÉÓÚ`ITestService`ÊµÏÖÁË`IRougamo<>`·ºĞÍ½Ó¿Ú£¬²¢ÇÒÖÆ¶¨`OtelAttribute`Îª·ºĞÍÀàĞÍ£¬ËùÒÔ`ITestService`µÄÊµÏÖÀà`TestService`µÄ
-ËùÓĞ¹«¿ª(public)ÊµÀı(·Çstatic)·½·¨½«×Ô¶¯Ö¯Èë`OtelAttribute`µÄÊµÏÖ£¬ÕâÀïÖ®ËùÒÔÊÇ¹«¿ªÊµÀı·½·¨£¬ÊÇÒòÎª`OtelAttribute.Flags`ÊôĞÔÖµÄ¬ÈÏÎª`AccessFlags.InstancePublic`£¬
-³ıÁË¹«¿ªÊµÀıµÄ¿É·ÃÎÊĞÔ×¢Èë£¬ÏÂÃæÁĞ³öÁËÆäËû¿É·ÃÎÊĞÔµÄAttribute£¬Èç¹ûÏÂÃæµÄ¿É·ÃÎÊĞÔ»¹²»ÄÜÂú×ãÒªÇó£¬¿ÉÒÔ¸ù¾İ×Ô¼ºµÄĞèÇó×Ô¼º¼Ì³Ğ`OtelAttribute`»ò`PureOtelAttribute`£¬
-È»ºóÖØĞ´`Flags`ÊôĞÔ
+ä¸Šé¢çš„ä»£ç ä¸­ï¼Œç”±äº`ITestService`å®ç°äº†`IRougamo<>`æ³›å‹æ¥å£ï¼Œå¹¶ä¸”åˆ¶å®š`OtelAttribute`ä¸ºæ³›å‹ç±»å‹ï¼Œæ‰€ä»¥`ITestService`çš„å®ç°ç±»`TestService`çš„
+æ‰€æœ‰å…¬å¼€(public)å®ä¾‹(éstatic)æ–¹æ³•å°†è‡ªåŠ¨ç»‡å…¥`OtelAttribute`çš„å®ç°ï¼Œè¿™é‡Œä¹‹æ‰€ä»¥æ˜¯å…¬å¼€å®ä¾‹æ–¹æ³•ï¼Œæ˜¯å› ä¸º`OtelAttribute.Flags`å±æ€§å€¼é»˜è®¤ä¸º`AccessFlags.InstancePublic`ï¼Œ
+é™¤äº†å…¬å¼€å®ä¾‹çš„å¯è®¿é—®æ€§æ³¨å…¥ï¼Œä¸‹é¢åˆ—å‡ºäº†å…¶ä»–å¯è®¿é—®æ€§çš„Attributeï¼Œå¦‚æœä¸‹é¢çš„å¯è®¿é—®æ€§è¿˜ä¸èƒ½æ»¡è¶³è¦æ±‚ï¼Œå¯ä»¥æ ¹æ®è‡ªå·±çš„éœ€æ±‚è‡ªå·±ç»§æ‰¿`OtelAttribute`æˆ–`PureOtelAttribute`ï¼Œ
+ç„¶åé‡å†™`Flags`å±æ€§
 
-|×îĞ¡°æ±¾ÒªÇó|Ä¬ÈÏ¼ÇÂ¼²ÎÊıºÍ·µ»ØÖµ|Ä¬ÈÏ²»¼ÇÂ¼²ÎÊıºÍ·µ»ØÖµ|¿É·ÃÎÊĞÔ|
+|æœ€å°ç‰ˆæœ¬è¦æ±‚|é»˜è®¤è®°å½•å‚æ•°å’Œè¿”å›å€¼|é»˜è®¤ä¸è®°å½•å‚æ•°å’Œè¿”å›å€¼|å¯è®¿é—®æ€§|
 |:--:|:--:|:--:|:--|
-|0.1.2|PublicOtelAttribute|PublicPureOtelAttribute|ËùÓĞpublic·½·¨£¬ÎŞÂÛÊÇ¾²Ì¬·½·¨»¹ÊÇÊµÀı·½·¨|
-|0.1.2|StaticOtelAttribute|StaticPureOtelAttribute|ËùÓĞpublic static·½·¨|
-|0.1.2|FullOtelAttribute|FullPureOtelAttribute|ËùÓĞ·½·¨£¬²»ÂÛ¿É·ÃÎÊĞÔÈçºÎ|
+|0.1.2|PublicOtelAttribute|PublicPureOtelAttribute|æ‰€æœ‰publicæ–¹æ³•ï¼Œæ— è®ºæ˜¯é™æ€æ–¹æ³•è¿˜æ˜¯å®ä¾‹æ–¹æ³•|
+|0.1.2|StaticOtelAttribute|StaticPureOtelAttribute|æ‰€æœ‰public staticæ–¹æ³•|
+|0.1.2|FullOtelAttribute|FullPureOtelAttribute|æ‰€æœ‰æ–¹æ³•ï¼Œä¸è®ºå¯è®¿é—®æ€§å¦‚ä½•|
 
-## Í¨¹ı´úÀíAttributeÖ¯Èë
-[´úÀíAttributeÖ¯Èë](https://github.com/inversionhourglass/Rougamo#attribute%E4%BB%A3%E7%90%86%E7%BB%87%E5%85%A5moproxyattribute)Í¬ÑùÊÇ`Rougamo`Ìá¹©µÄÖ¯Èë·½Ê½£¬
-ÆäÖĞÒ»ÖÖÊ¹ÓÃ³¡¾°ÊÇ½áºÏ[Rougamo.APM.Abstractions](https://github.com/inversionhourglass/Rougamo.APM#rougamoapmabstractions)Ê¹ÓÃ£¬ÂñµãµÄAttributeÊ¹ÓÃ`Rougamo.APM.Abstractions`
-Ìá¹©µÄ`SpanAttribute`ºÍ`PureSpanAttribute`£¬ÕâÁ½¸öAttribute²¢²»»áÖ¯Èë´úÂë£¬½ö½öÓÃÓÚ±ê¼Ç£¬Ö®ºóÔÚÍ¨¹ı´úÀíµÄ·½Ê½½øĞĞÕæÕıµÄÖ¯Èë
+## é€šè¿‡ä»£ç†Attributeç»‡å…¥
+[ä»£ç†Attributeç»‡å…¥](https://github.com/inversionhourglass/Rougamo#attribute%E4%BB%A3%E7%90%86%E7%BB%87%E5%85%A5moproxyattribute)åŒæ ·æ˜¯`Rougamo`æä¾›çš„ç»‡å…¥æ–¹å¼ï¼Œ
+å…¶ä¸­ä¸€ç§ä½¿ç”¨åœºæ™¯æ˜¯ç»“åˆ[Rougamo.APM.Abstractions](https://github.com/inversionhourglass/Rougamo.APM#rougamoapmabstractions)ä½¿ç”¨ï¼ŒåŸ‹ç‚¹çš„Attributeä½¿ç”¨`Rougamo.APM.Abstractions`
+æä¾›çš„`SpanAttribute`å’Œ`PureSpanAttribute`ï¼Œè¿™ä¸¤ä¸ªAttributeå¹¶ä¸ä¼šç»‡å…¥ä»£ç ï¼Œä»…ä»…ç”¨äºæ ‡è®°ï¼Œä¹‹ååœ¨é€šè¿‡ä»£ç†çš„æ–¹å¼è¿›è¡ŒçœŸæ­£çš„ç»‡å…¥
 ```csharp
-// Startup.cs»òÕßAssemblyInfo.csµÈÏîÄ¿ÆäËûÈÎÒâÎ»ÖÃÌí¼ÓÏÂÃæµÄ³ÌĞò¼¯¼¶±ğµÄAttribute
+// Startup.csæˆ–è€…AssemblyInfo.csç­‰é¡¹ç›®å…¶ä»–ä»»æ„ä½ç½®æ·»åŠ ä¸‹é¢çš„ç¨‹åºé›†çº§åˆ«çš„Attribute
 [assembly: MoProxy(typeof(SpanAttribute), typeof(OtelAttribute))]
 [assembly: MoProxy(typeof(PureSpanAttribute), typeof(PureOtelAttribute))]
 
 public class Cls
 {
-    [Span]  // ×îÖÕÍ¨¹ı´úÀíÖ¯ÈëOtelAttributeµÄ´úÂëÊµÏÖ
+    [Span]  // æœ€ç»ˆé€šè¿‡ä»£ç†ç»‡å…¥OtelAttributeçš„ä»£ç å®ç°
     public int M1()
     {
         // ...
         return 123;
     }
 
-    [PureSpan]  // ×îÖÕÍ¨¹ı´úÀíÖ¯ÈëPureOtelAttributeµÄ´úÂëÊµÏÖ
+    [PureSpan]  // æœ€ç»ˆé€šè¿‡ä»£ç†ç»‡å…¥PureOtelAttributeçš„ä»£ç å®ç°
     private async Task<string> M2Async()
     {
         // ...
@@ -111,8 +111,5 @@ public class Cls
     }
 }
 ```
-Í¨¹ı´úÀíµÄ·½Ê½ÎŞ·¨Ê¹ÓÃ½Ó¿ÚÖ¯Èë£¬Ò²ÎŞ·¨×Ô¶¨Òå²ÎÊı£¨OtelAttribute.Name£©£¬µ«Ê¹ÓÃÕâÖÖ·½Ê½µÄÓÅÊÆÔÚÓÚ£¬Èç¹ûÄã»¹²»È·¶¨ÄãµÄAPM×îÖÕÊ¹ÓÃÊ²Ã´»òÕß¿ÉÄÜ»á»»ÆäËû`OpenTelemetry`²»Ö§³ÖµÄAPM£¬
-ÄÇÃ´ÄãÊ¹ÓÃÕâÖÖ´úÀíµÄ·½Ê½¾Í¿ÉÒÔ½ö½öĞŞ¸ÄÉÏÃæÊµÀı´úÂëÖĞ`MoProxyAttribute`Ö¸¶¨´úÀíÀàĞÍµÄ´úÂë¡£
-
-### todo
-- English document
+é€šè¿‡ä»£ç†çš„æ–¹å¼æ— æ³•ä½¿ç”¨æ¥å£ç»‡å…¥ï¼Œä¹Ÿæ— æ³•è‡ªå®šä¹‰å‚æ•°ï¼ˆOtelAttribute.Nameï¼‰ï¼Œä½†ä½¿ç”¨è¿™ç§æ–¹å¼çš„ä¼˜åŠ¿åœ¨äºï¼Œå¦‚æœä½ è¿˜ä¸ç¡®å®šä½ çš„APMæœ€ç»ˆä½¿ç”¨ä»€ä¹ˆæˆ–è€…å¯èƒ½ä¼šæ¢å…¶ä»–`OpenTelemetry`ä¸æ”¯æŒçš„APMï¼Œ
+é‚£ä¹ˆä½ ä½¿ç”¨è¿™ç§ä»£ç†çš„æ–¹å¼å°±å¯ä»¥ä»…ä»…ä¿®æ”¹ä¸Šé¢å®ä¾‹ä»£ç ä¸­`MoProxyAttribute`æŒ‡å®šä»£ç†ç±»å‹çš„ä»£ç ã€‚
