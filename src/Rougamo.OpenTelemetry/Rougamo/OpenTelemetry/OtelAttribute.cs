@@ -10,13 +10,13 @@ namespace Rougamo.OpenTelemetry
     /// </summary>
     public class OtelAttribute : MoAttribute
     {
-        private Activity _activity;
-        private string _parameters;
+        private Activity? _activity;
+        private string? _parameters;
 
         /// <summary>
         /// use method full name if not set this property
         /// </summary>
-        public virtual string Name { get; set; }
+        public virtual string? Name { get; set; }
 
         /// <summary>
         /// record parameter and return value and working with <see cref="ApmIgnoreAttribute"/> if true, otherwise dot not record those and working with <see cref="ApmRecordAttribute"/>, default true
@@ -35,7 +35,7 @@ namespace Rougamo.OpenTelemetry
                                     $"{context.TargetType.Name}.{context.Method.Name}" :
                                     $"{context.TargetType.FullName}.{context.Method.Name}");
             _parameters = context.GetMethodParameters(OtelSingleton.Serializer, RecordArguments);
-            _activity = OtelSingleton.Source.StartActivity(name);
+            _activity = OtelSingleton.Source.StartActivity(name!);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Rougamo.OpenTelemetry
             _activity.SetStatus(Status.Error);
             if (context.IsMuteExceptionForApm(RecordArguments))
             {
-                if (!context.Exception.Data.Contains(OtelConstants.EXCEPTION_MARK))
+                if (!context.Exception!.Data.Contains(OtelConstants.EXCEPTION_MARK))
                 {
                     _activity.RecordException(context.Exception);
                     context.Exception.Data.Add(OtelConstants.EXCEPTION_MARK, null);
@@ -83,7 +83,7 @@ namespace Rougamo.OpenTelemetry
             _activity = null;
         }
         
-        private void RecordingArguments(string parameters, string @return)
+        private void RecordingArguments(string? parameters, string @return)
         {
             if (OtelSingleton.Options == null || _activity == null) return;
 

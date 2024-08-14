@@ -19,7 +19,7 @@ namespace Rougamo.OpenTelemetry.Hosting
         public Task StartAsync(CancellationToken cancellationToken)
         {
             var options = _provider.GetService(typeof(IOptions<OtelRougamoOptions>)) as IOptions<OtelRougamoOptions>;
-            OtelSingleton.Options = options.Value;
+            OtelSingleton.Options = options!.Value;
 
             var serializer = _provider.GetService(typeof(ISerializer)) as ISerializer;
             if (serializer != null)
