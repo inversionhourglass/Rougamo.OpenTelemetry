@@ -1,13 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31911.196
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0210579B-6F03-4895-9353-13EE0F51FCF3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{BFE95887-5D20-42F2-A585-A43241D746A8}"
 	ProjectSection(SolutionItems) = preProject
-		deploy.bat = deploy.bat
+		CHANGELOG.md = CHANGELOG.md
+		common.props = common.props
 		README.md = README.md
 		rougamo-otel.png = rougamo-otel.png
 	EndProjectSection
@@ -18,9 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{019A4852-0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{39D21169-A424-4E6F-84CF-3D9D7799C062}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rougamo.OpenTelemetryJaegerTest.AspNetCore", "test\sample\Rougamo.OpenTelemetryJaegerTest.AspNetCore\Rougamo.OpenTelemetryJaegerTest.AspNetCore.csproj", "{8071A38F-73AA-422F-8ACB-47C69EF420C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rougamo.OpenTelemetryJaegerTest.AspNetCore", "test\sample\Rougamo.OpenTelemetryJaegerTest.AspNetCore\Rougamo.OpenTelemetryJaegerTest.AspNetCore.csproj", "{8071A38F-73AA-422F-8ACB-47C69EF420C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rougamo.OpenTelemetry.Hosting", "src\Rougamo.OpenTelemetry.Hosting\Rougamo.OpenTelemetry.Hosting.csproj", "{E60F1980-0E4E-4B1D-9717-033E1EAA00D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rougamo.OpenTelemetry.Hosting", "src\Rougamo.OpenTelemetry.Hosting\Rougamo.OpenTelemetry.Hosting.csproj", "{E60F1980-0E4E-4B1D-9717-033E1EAA00D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
