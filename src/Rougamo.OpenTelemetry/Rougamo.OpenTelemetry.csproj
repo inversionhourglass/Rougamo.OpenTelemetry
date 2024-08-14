@@ -1,22 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../../common.props" />
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace />
-    <Version>0.1.2</Version>
-    <Authors>ihourglass</Authors>
-    <Description>rougamo OpenTelemetry code weaver</Description>
-    <PackageTags>AOP OpenTelemetry</PackageTags>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
-    <PackageOutputPath>$(SolutionDir)nugets</PackageOutputPath>
-    <PackageProjectUrl>https://github.com/inversionhourglass/Rougamo.OpenTelemetry</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/inversionhourglass/Rougamo.OpenTelemetry.git</RepositoryUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/inversionhourglass/Rougamo.OpenTelemetry/master/rougamo-otel.png</PackageIconUrl>
-    <RepositoryType>git</RepositoryType>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
