@@ -27,17 +27,21 @@ namespace Rougamo.OpenTelemetryJaegerTest.AspNetCore
 
             services.AddHttpClient();
 
-            services.AddOpenTelemetryTracing(builder =>
-            {
-                builder
-                    .AddRougamoSource()
-                    .AddAspNetCoreInstrumentation()
-                    .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("RougamoOpenTelemetryTestSample"))
-                    .AddJaegerExporter();
-            });
+            services
+                .AddOpenTelemetry()
+                .ConfigureResource(builder => builder.AddService("RougamoOpenTelemetryTestSample"))
+                .WithTracing(builder =>
+                {
+                    builder
+                        .AddRougamoSource()
+                        .AddAspNetCoreInstrumentation()
+                        .AddOtlpExporter()
+                        .AddConsoleExporter();
+                });
+
             services.AddOpenTelemetryRougamo(options =>
             {
-                options.ArgumentsStoreType = ArgumentsStoreType.Tag;
+                options.ArgumentsStoreType = ArgumentsStoreType.Event;
             });
             services.AddRougamoJsonSerializer();
 
