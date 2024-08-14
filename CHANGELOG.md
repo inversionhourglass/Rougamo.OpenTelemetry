@@ -1,3 +1,5 @@
+**注意：`Rougamo.OpenTelemetry`和`Rougamo.OpenTelemetry.Hosting`共享以下更新内容**
+
 - 更新NuGet依赖
 
   |                     包名                     |      版本变化      |

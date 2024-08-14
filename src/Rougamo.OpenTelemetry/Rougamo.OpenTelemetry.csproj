@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Rougamo.APM.Abstractions" Version="4.0.0-priview-1723628750" />
+    <PackageReference Include="Rougamo.APM.Abstractions" Version="4.0.0" />
     <PackageReference Include="Rougamo.Fody" Version="4.0.0" IncludeAssets="all" PrivateAssets="contentfiles;analyzers" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
