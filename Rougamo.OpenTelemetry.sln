@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		CHANGELOG.md = CHANGELOG.md
 		common.props = common.props
 		README.md = README.md
+		README_en.md = README_en.md
 		rougamo-otel.png = rougamo-otel.png
 	EndProjectSection
 EndProject
