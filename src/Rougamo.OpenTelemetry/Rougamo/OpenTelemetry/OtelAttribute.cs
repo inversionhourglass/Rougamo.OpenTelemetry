@@ -14,18 +14,16 @@ namespace Rougamo.OpenTelemetry
         private string? _parameters;
 
         /// <summary>
-        /// use method full name if not set this property
+        /// Use method full name if not set this property
         /// </summary>
         public virtual string? Name { get; set; }
 
         /// <summary>
-        /// record parameter and return value and working with <see cref="ApmIgnoreAttribute"/> if true, otherwise dot not record those and working with <see cref="ApmRecordAttribute"/>, default true
+        /// Record parameter and return value and working with <see cref="ApmIgnoreAttribute"/> if true, otherwise dot not record those and working with <see cref="ApmRecordAttribute"/>, default true
         /// </summary>
         public virtual bool RecordArguments { get; set; } = true;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public override void OnEntry(MethodContext context)
         {
             if (OtelSingleton.Options == null) return;
@@ -38,9 +36,7 @@ namespace Rougamo.OpenTelemetry
             _activity = OtelSingleton.Source.StartActivity(name!);
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public override void OnSuccess(MethodContext context)
         {
             if (_activity == null) return;
@@ -50,9 +46,7 @@ namespace Rougamo.OpenTelemetry
             SetSuccessStatus();
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public override void OnException(MethodContext context)
         {
             if (_activity == null) return;
@@ -72,9 +66,7 @@ namespace Rougamo.OpenTelemetry
             }
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public override void OnExit(MethodContext context)
         {
             if (_activity == null) return;
@@ -83,7 +75,7 @@ namespace Rougamo.OpenTelemetry
             _activity = null;
         }
         
-        private void RecordingArguments(string? parameters, string @return)
+        private void RecordingArguments(string? parameters, string? @return)
         {
             if (OtelSingleton.Options == null || _activity == null) return;
 

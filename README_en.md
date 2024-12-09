@@ -1,5 +1,7 @@
 # Rougamo.OpenTelemetry
 
+[ÖÐÎÄ](https://github.com/inversionhourglass/Rougamo.OpenTelemetry/blob/master/README.md) | English
+
 `Rougamo.OpenTelemetry` is a component designed to enrich [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-dotnet) with non-IO instrumentation. It leverages the static weaving capabilities of [Rougamo](https://github.com/inversionhourglass/Rougamo) to add `Trace` instrumentation to specified methods.
 
 ## Quick Start

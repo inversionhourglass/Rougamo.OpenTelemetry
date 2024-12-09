@@ -1,35 +1,31 @@
-﻿namespace Rougamo.OpenTelemetry
+﻿using Rougamo.Metadatas;
+
+namespace Rougamo.OpenTelemetry
 {
     /// <summary>
     /// weave public method
     /// </summary>
+    [Pointcut(AccessFlags.Public)]
+    [Lifetime(Lifetime.Pooled)]
     public class PublicOtelAttribute : OtelAttribute
     {
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        public override AccessFlags Flags => AccessFlags.Public;
     }
 
     /// <summary>
     /// weave public static method only
     /// </summary>
+    [Pointcut(AccessFlags.StaticPublic)]
+    [Lifetime(Lifetime.Pooled)]
     public class StaticOtelAttribute : OtelAttribute
     {
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        public override AccessFlags Flags => AccessFlags.StaticPublic;
     }
 
     /// <summary>
     /// whatever visibility of method, weave all method
     /// </summary>
+    [Pointcut(AccessFlags.All)]
+    [Lifetime(Lifetime.Pooled)]
     public class FullOtelAttribute : OtelAttribute
     {
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        public override AccessFlags Flags => AccessFlags.All;
     }
 }

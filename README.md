@@ -1,4 +1,7 @@
 # Rougamo.OpenTelemetry
+
+中文 | [English](https://github.com/inversionhourglass/Rougamo.OpenTelemetry/blob/master/README_en.md)
+
 `Rougamo.OpenTelemetry`是用来丰富[OpenTelemetry](https://github.com/open-telemetry/opentelemetry-dotnet)非IO埋点的组件，
 其借助于[Rougamo](https://github.com/inversionhourglass/Rougamo)静态织入的功能，对指定方法增加`Trace`埋点
 

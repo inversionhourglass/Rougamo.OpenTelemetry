@@ -5,9 +5,7 @@
     /// </summary>
     public class PureOtelAttribute : OtelAttribute
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public override bool RecordArguments { get; set; } = false;
     }
 }
