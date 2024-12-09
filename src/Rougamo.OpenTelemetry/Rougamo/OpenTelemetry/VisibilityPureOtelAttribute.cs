@@ -6,6 +6,7 @@ namespace Rougamo.OpenTelemetry
     /// pure weave public method
     /// </summary>
     [Pointcut(AccessFlags.Public)]
+    [Advice(Feature.Observe)]
     [Lifetime(Lifetime.Pooled)]
     public class PublicPureOtelAttribute : PureOtelAttribute
     {
@@ -15,6 +16,7 @@ namespace Rougamo.OpenTelemetry
     /// pure weave public static method only
     /// </summary>
     [Pointcut(AccessFlags.StaticPublic)]
+    [Advice(Feature.Observe)]
     [Lifetime(Lifetime.Pooled)]
     public class StaticPureOtelAttribute : PureOtelAttribute
     {
@@ -24,6 +26,7 @@ namespace Rougamo.OpenTelemetry
     /// whatever visibility of method, pure weave all method
     /// </summary>
     [Pointcut(AccessFlags.All)]
+    [Advice(Feature.Observe)]
     [Lifetime(Lifetime.Pooled)]
     public class FullPureOtelAttribute : PureOtelAttribute
     {

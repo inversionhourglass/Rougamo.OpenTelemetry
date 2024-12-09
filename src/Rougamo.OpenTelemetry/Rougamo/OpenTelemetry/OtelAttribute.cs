@@ -1,6 +1,7 @@
 ﻿using OpenTelemetry.Trace;
 using Rougamo.APM;
 using Rougamo.Context;
+using Rougamo.Metadatas;
 using System.Diagnostics;
 
 namespace Rougamo.OpenTelemetry
@@ -8,7 +9,9 @@ namespace Rougamo.OpenTelemetry
     /// <summary>
     /// OpenTelemetry activity
     /// </summary>
-    public class OtelAttribute : MoAttribute
+    [Advice(Feature.Observe)]
+    [Lifetime(Lifetime.Pooled)]
+    public class OtelAttribute : MoAttribute, IResettable
     {
         private Activity? _activity;
         private string? _parameters;
@@ -101,6 +104,17 @@ namespace Rougamo.OpenTelemetry
 
             var status = OtelSingleton.Options.SetOkStatusWhenSuccess ? Status.Ok : Status.Unset;
             _activity.SetStatus(status);
+        }
+
+        /// <inheritdoc/>
+        public virtual bool TryReset()
+        {
+            _activity = null;
+            _parameters = null;
+            Name = null;
+            RecordArguments = true;
+
+            return true;
         }
     }
 }
